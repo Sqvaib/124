@@ -7,7 +7,13 @@ public class Cache<T>{
     public Cache(int maxSize){
         if (maxSize <= 0){
             throw new IllegalArgumentException("Максимальный размер");
-
+        }
+        this.maxSize = maxSize;
+        this.items = new LinkedList<>();
+    }
+    public void add(T item){
+        if (item == null){
+            throw new IllegalArgumentException("don't null");
         }
         items.addLast(item);
         if (items.size() > maxSize){
